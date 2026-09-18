@@ -1,0 +1,272 @@
+{
+  "before": {
+    "run": {
+      "clusters": 6050,
+      "ids_reused": 0,
+      "ids_minted": 6050,
+      "ids_retired_into_alias": 0,
+      "opportunities_split": 0,
+      "timestamp": "2026-09-18T10:26:58",
+      "seconds_total": 51.3,
+      "stages": {
+        "1_read": 0.0,
+        "2_normalise": 13.0,
+        "3_sign": 8.6,
+        "4_index": 10.8,
+        "5_retrieve": 6.6,
+        "6_score": 12.2,
+        "7_identify": 0.1
+      },
+      "candidate_pairs": 3134175,
+      "merged_pairs": 13215,
+      "bucket_cap": 1000000000,
+      "suppressed_buckets": 0,
+      "run_id": 1
+    },
+    "per_notice_work": {
+      "total_candidate_slots": 6268350,
+      "mean": 522.3625,
+      "median": 483.0,
+      "p90": 885.1000000000004,
+      "p99": 1285.0100000000002,
+      "max": 1931.0,
+      "share_of_work_from_top_1pct_of_notices": 0.027364777014684885,
+      "share_of_work_from_top_5pct_of_notices": 0.11351025389456555,
+      "share_of_work_from_top_10pct_of_notices": 0.20397393253407994
+    },
+    "buckets": {
+      "buckets_total": 1766017,
+      "buckets_with_1_member": 1282055,
+      "largest_bucket": 507,
+      "pairs_emitted_total": 5285693,
+      "share_of_pairs_from_buckets_over_60": 0.4146983186499859,
+      "share_of_pairs_from_buckets_over_200": 0.17566816687991527
+    },
+    "attribution": {
+      "corpus_share_nodal": 0.38875,
+      "top1pct_share_nodal": 0.45,
+      "top1pct_portal_counts": [
+        [
+          "P094",
+          15
+        ],
+        [
+          "P006",
+          13
+        ],
+        [
+          "P003",
+          11
+        ],
+        [
+          "P005",
+          9
+        ],
+        [
+          "P001",
+          9
+        ],
+        [
+          "P002",
+          8
+        ],
+        [
+          "P020",
+          5
+        ],
+        [
+          "P004",
+          4
+        ],
+        [
+          "P240",
+          2
+        ],
+        [
+          "P221",
+          2
+        ]
+      ],
+      "mean_work_by_portal_class": {
+        "nodal": 529.6831725616291,
+        "other": 517.706612133606
+      },
+      "shingle_count_top1pct": 164.73333333333332,
+      "shingle_count_corpus": 155.31066666666666
+    },
+    "mechanism": {
+      "top_shingles_by_document_frequency": [
+        [
+          "<num> between chainage <num> <num>",
+          1.0
+        ],
+        [
+          "between chainage <num> <num> and",
+          1.0
+        ],
+        [
+          "and the approved drawings the",
+          1.0
+        ],
+        [
+          "chainage <num> <num> and <num>",
+          1.0
+        ],
+        [
+          "bill of quantities and the",
+          1.0
+        ],
+        [
+          "drainage structures protective works road",
+          1.0
+        ]
+      ],
+      "mean_fraction_of_a_notice_shingles_that_are_corpus_common_gt1pct": 0.7376224411755523,
+      "shingles_per_notice_p1_p50_p99": [
+        110.0,
+        154.0,
+        211.0
+      ],
+      "largest_bucket": {
+        "band_no": 137,
+        "members": 507,
+        "distinct_true_opportunities_inside": 267,
+        "portal_mix": [
+          [
+            "P094",
+            70
+          ],
+          [
+            "P006",
+            40
+          ],
+          [
+            "P005",
+            39
+          ],
+          [
+            "P001",
+            36
+          ],
+          [
+            "P002",
+            33
+          ],
+          [
+            "P004",
+            28
+          ]
+        ]
+      }
+    },
+    "quality": {
+      "candidate_recall_on_labelled_same": 1.0,
+      "merge_recall_on_labelled_same": 0.8960573476702509,
+      "false_merges_on_labelled_different": 0,
+      "candidate_pairs": 3134175,
+      "merged_pairs": 13215,
+      "clusters": 6050,
+      "seconds_total": 51.3
+    }
+  },
+  "growth_projection_uncapped": [
+    {
+      "weeks": 0,
+      "notices": 12000,
+      "projected_candidate_pairs": 3134175,
+      "projected_seconds": 51.2,
+      "over_budget": false
+    },
+    {
+      "weeks": 26,
+      "notices": 116000,
+      "projected_candidate_pairs": 139186111,
+      "projected_seconds": 1148.1,
+      "over_budget": false
+    },
+    {
+      "weeks": 52,
+      "notices": 220000,
+      "projected_candidate_pairs": 470487443,
+      "projected_seconds": 3416.2,
+      "over_budget": true
+    },
+    {
+      "weeks": 104,
+      "notices": 428000,
+      "projected_candidate_pairs": 1718838295,
+      "projected_seconds": 11465.9,
+      "over_budget": true
+    },
+    {
+      "weeks": 156,
+      "notices": 636000,
+      "projected_candidate_pairs": 3748186730,
+      "projected_seconds": 24200.3,
+      "over_budget": true
+    }
+  ],
+  "first_breach_of_20min_budget": {
+    "weeks": 52,
+    "notices": 220000,
+    "projected_candidate_pairs": 470487443,
+    "projected_seconds": 3416.2,
+    "over_budget": true
+  },
+  "mitigation": {
+    "rule": "a band whose bucket has more than 60 members is not expanded into pairs",
+    "bucket_cap": 60
+  },
+  "after": {
+    "run": {
+      "clusters": 6050,
+      "ids_reused": 0,
+      "ids_minted": 6050,
+      "ids_retired_into_alias": 0,
+      "opportunities_split": 0,
+      "timestamp": "2026-09-18T10:27:41",
+      "seconds_total": 41.4,
+      "stages": {
+        "1_read": 0.0,
+        "2_normalise": 12.7,
+        "3_sign": 9.0,
+        "4_index": 10.7,
+        "5_retrieve": 3.8,
+        "6_score": 4.8,
+        "7_identify": 0.4
+      },
+      "candidate_pairs": 1247615,
+      "merged_pairs": 13215,
+      "bucket_cap": 60,
+      "suppressed_buckets": 264,
+      "run_id": 1
+    },
+    "per_notice_work": {
+      "total_candidate_slots": 2495230,
+      "mean": 207.93583333333333,
+      "median": 201.0,
+      "p90": 320.0,
+      "p99": 428.0100000000002,
+      "max": 608.0,
+      "share_of_work_from_top_1pct_of_notices": 0.022470874428409403,
+      "share_of_work_from_top_5pct_of_notices": 0.09615706768514325,
+      "share_of_work_from_top_10pct_of_notices": 0.1768810891180372
+    },
+    "quality": {
+      "candidate_recall_on_labelled_same": 1.0,
+      "merge_recall_on_labelled_same": 0.8960573476702509,
+      "false_merges_on_labelled_different": 0,
+      "candidate_pairs": 1247615,
+      "merged_pairs": 13215,
+      "clusters": 6050,
+      "seconds_total": 41.4
+    }
+  },
+  "price_of_mitigation": {
+    "candidate_pairs_removed": 1886560,
+    "merge_decisions_lost": 0,
+    "merge_decisions_lost_pct": 0.0,
+    "clusters_before": 6050,
+    "clusters_after": 6050
+  }
+}

@@ -1,0 +1,6 @@
+Question_1/Question 1/data/
+Question_2/**/data/
+
+*.csv
+*.xlsx
+*.parquet

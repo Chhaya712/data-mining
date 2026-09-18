@@ -1,0 +1,41 @@
+instructions:-
+
+1)the whole stack must run locally from a single docker compose up. No managed cloud service be used. if examiner cannot bring your stack up from cold start on your machine, the implementation marks for that part are not available,
+2) the input data is in /exam/data/. it is not clean. Any claim you make must be backed by a number you measured and can reproduce on request.
+
+Question 1. Three Answers to One Question
+
+
+context:-
+Annapurna stores runs 12 supermarkets. Every night, each stores billings system writes out that day's sales lines to a shared folder.
+head office ha no data team; an analyst opens the files in a spreadsheet, one month at a time, and types the totals into a slides.
+Last week the CFO asked for October revenue and given three different figures by three different people, all working from the same folder. in the same meeting, the category manager asked what a particular biscuit pack sold for in march, and the spreadsheet answered with the price on the shelf today.
+The CFO's Instruction to you, in Full:
+
+"Build me something where October is October. I want to slice revenue by store, by product category, by day of the week and by month, and I want the same number every time I ask. I also want march's prices when I ask about last march. I do not care what software you use. I do care the analyst can stop opening files by hand."
+
+What you are given in /exam/data/
+
+* sales/ - roughly six hundred daily files, one per store per day. Mixed CSV and Parquet. columns include the bill number, the product code, Quanity, unit price, a line type and a timestamp.
+
+*masterssql - to be loaded into PostgreSQL: stores, products, product categories, and a table of price revisions with the date each took effect.
+
+* finance_monthly.csv - The twelve monthly revenue figures the finance team has already closed and signed off. this is your reconciliation target for part(f).
+* billing_note.md - Whatever the billing vendor left behind. Read it. It is short and it matters/
+
+
+Tasks:-
+
+A) stand the platform up and land the data. Bring up an object store, a relational database and analytical Query engine. Load the daily files into the object store, organised so that a query about one store in one month does not have to look at the other eleven stores or the other eleven months. ay what organisation you chose, the show it working: for one such Query, how many files and how many bytes could the engine possibly have to open under your layout, compared with putting everything in one folder?
+
+B) Make it safe to run twice. some days appear in the folder more than once-- the billing system re-sends when a store reports a problem. Build the loading step so that running it three times in a row gives the same result as running it once. prove it: run it three times, record the row count and a checksum after each run, and include the output.
+
+C) Design the tables behind the dashboard. The dashboard must slice revenue by store, by product category, by day of the week and by month, quickly. Design and build the tables that make that possible without repeating each store's name and address on every one of  the millions of sales lines. Note two things about the source data before you starts: not every line is a sale, and a product code that was retired has since been reissued to a different product, so the code alone does not identify what was sold.
+
+D) Make March use March's Prices. price change. using the revisions table, arrange things so that a report for March 2024 uses that prices that applied in march 2024, while a report for last month uses last month's - from the same query, with no change to the code between the two. Demonstrate by running one query twice, differing only in the reporting period.
+
+E) Query across the two systems. The sales data is in the object store; the stores, products and categories are in PostgreSQL. Write one query that joins across both without first copying either side into the other. then tell us, using evidence from the engine rather than from documentation, which parts of that query were evaluated where.
+
+F) Reconcile. compare your monthly Revenue against fiance_monthly.csv. You will not match every month. For each month that differs, say whether the cause is something wrong with the source data, a difference in how the two of you define revenue, or a bug in your pipeline - and say which of the three you would take back to the finance team.
+
+One Warning. It is easy to produce an October figure that is roughly twice the correct one. If your revenue looks surprisingly healthy, part (c) is where to look before you submit.

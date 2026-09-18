@@ -1,0 +1,191 @@
+{
+  "pipeline": {
+    "clusters": 5804,
+    "ids_reused": 0,
+    "ids_minted": 5804,
+    "ids_retired_into_alias": 0,
+    "opportunities_split": 0,
+    "timestamp": "2026-09-18T09:49:12",
+    "seconds_total": 50.1,
+    "stages": {
+      "1_read": 0.0,
+      "2_normalise": 12.6,
+      "3_sign": 8.7,
+      "4_index": 11.1,
+      "5_retrieve": 6.3,
+      "6_score": 11.3,
+      "7_identify": 0.1
+    },
+    "candidate_pairs": 3134175,
+    "merged_pairs": 14759,
+    "bucket_cap": 1000000000,
+    "suppressed_buckets": 0,
+    "run_id": 1
+  },
+  "empirical_survival": [
+    [
+      0.025,
+      0,
+      NaN
+    ],
+    [
+      0.07500000000000001,
+      0,
+      NaN
+    ],
+    [
+      0.125,
+      4,
+      0.0
+    ],
+    [
+      0.17500000000000002,
+      182,
+      0.0
+    ],
+    [
+      0.225,
+      256,
+      0.01171875
+    ],
+    [
+      0.275,
+      127,
+      0.09448818897637795
+    ],
+    [
+      0.32500000000000007,
+      45,
+      0.2
+    ],
+    [
+      0.375,
+      5,
+      0.2
+    ],
+    [
+      0.42500000000000004,
+      2,
+      1.0
+    ],
+    [
+      0.475,
+      0,
+      NaN
+    ],
+    [
+      0.525,
+      1,
+      1.0
+    ],
+    [
+      0.5750000000000001,
+      3,
+      1.0
+    ],
+    [
+      0.625,
+      6,
+      1.0
+    ],
+    [
+      0.675,
+      11,
+      1.0
+    ],
+    [
+      0.7250000000000001,
+      15,
+      1.0
+    ],
+    [
+      0.775,
+      35,
+      1.0
+    ],
+    [
+      0.8250000000000001,
+      36,
+      1.0
+    ],
+    [
+      0.875,
+      38,
+      1.0
+    ],
+    [
+      0.925,
+      75,
+      1.0
+    ],
+    [
+      0.9750000000000001,
+      47,
+      1.0
+    ]
+  ],
+  "operating_points": {
+    "b=237,r=6 (adopted)": {
+      "bands": 237,
+      "rows": 6,
+      "K_used": 1422,
+      "candidate_pairs": 3134175,
+      "candidate_pairs_per_notice": 522.4,
+      "recall_on_labelled_same": 1.0,
+      "knee_of_scurve": 0.402
+    },
+    "b=79,r=18 (cheaper, rejected)": {
+      "bands": 79,
+      "rows": 18,
+      "K_used": 1422,
+      "candidate_pairs": 12124,
+      "candidate_pairs_per_notice": 2.0,
+      "recall_on_labelled_same": 0.8100358422939068,
+      "knee_of_scurve": 0.7845
+    },
+    "b=284,r=5 (safer, rejected)": {
+      "bands": 284,
+      "rows": 5,
+      "K_used": 1420,
+      "candidate_pairs": 11795395,
+      "candidate_pairs_per_notice": 1965.9,
+      "recall_on_labelled_same": 1.0,
+      "knee_of_scurve": 0.3231
+    },
+    "b=177,r=8 (rejected)": {
+      "bands": 177,
+      "rows": 8,
+      "K_used": 1416,
+      "candidate_pairs": 272730,
+      "candidate_pairs_per_notice": 45.5,
+      "recall_on_labelled_same": 0.996415770609319,
+      "knee_of_scurve": 0.5236
+    }
+  },
+  "threshold": {
+    "rule_of_three_95pct_upper_fpr_at_max_observed": 0.004830917874396135,
+    "false_merges_implied_by_that_bound_per_run": 15140.942028985506,
+    "tail_model": {
+      "threshold_u": 0.25,
+      "P(X>u)": 0.34299516908212563,
+      "beta": 0.038352713562198326,
+      "n_exceedances": 213
+    },
+    "modelled_fpr_at_chosen_t": 1.1048295514611977e-06,
+    "expected_false_merges_per_run_at_chosen_t": 3.4464229801008837,
+    "threshold_from_false_merge_budget_rule": 0.915,
+    "threshold_from_marginal_exchange_rule": 0.735,
+    "marginal_exchange_rate_at_chosen_t": 245.45458183387683,
+    "required_exchange_rate": 200.0,
+    "estimated_total_true_duplicate_pairs": 15083.373626373626,
+    "label_base_rate_same": 0.31,
+    "corpus_base_rate_same_among_candidates": 0.004709,
+    "effective_cost_ratio_after_base_rate_correction": 42271.4,
+    "chosen_threshold": 0.735,
+    "recall_on_labelled_same_at_threshold": 0.8960573476702509,
+    "false_merges_on_labelled_different_at_threshold": 0,
+    "max_est_among_labelled_different": 0.43037974683544306,
+    "min_est_among_labelled_same": 0.5070323488045007,
+    "deployed_threshold_in_config": 0.62
+  }
+}

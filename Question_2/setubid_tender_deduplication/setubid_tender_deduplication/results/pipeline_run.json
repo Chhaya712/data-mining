@@ -1,0 +1,23 @@
+{
+  "clusters": 6050,
+  "ids_reused": 0,
+  "ids_minted": 6050,
+  "ids_retired_into_alias": 0,
+  "opportunities_split": 0,
+  "timestamp": "2026-09-18T09:51:07",
+  "seconds_total": 51.7,
+  "stages": {
+    "1_read": 0.4,
+    "2_normalise": 13.4,
+    "3_sign": 8.8,
+    "4_index": 11.3,
+    "5_retrieve": 6.4,
+    "6_score": 11.4,
+    "7_identify": 0.1
+  },
+  "candidate_pairs": 3134175,
+  "merged_pairs": 13215,
+  "bucket_cap": 1000000000,
+  "suppressed_buckets": 0,
+  "run_id": 1
+}

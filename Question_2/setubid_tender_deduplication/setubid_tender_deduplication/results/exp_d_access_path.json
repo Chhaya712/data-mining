@@ -1,0 +1,80 @@
+{
+  "A_without_rowid_covering": {
+    "label": "WITHOUT ROWID clustered PK (adopted)",
+    "plan": [
+      "2 0 0 SEARCH band_bucket USING PRIMARY KEY (band_no=? AND band_hash=?)"
+    ],
+    "probes": 12000,
+    "rows_returned": 50250,
+    "rows_examined": 50250,
+    "rows_examined_per_probe": 4.2,
+    "wall_clock_s": 0.0761,
+    "us_per_probe": 6.3,
+    "note": ""
+  },
+  "B_rowid_plus_secondary_index": {
+    "label": "rowid table + secondary index (rejected)",
+    "plan": [
+      "3 0 0 SEARCH band_bucket_rowid USING INDEX ix_bbr (band_no=? AND band_hash=?)"
+    ],
+    "probes": 12000,
+    "rows_returned": 50250,
+    "rows_examined": 50250,
+    "rows_examined_per_probe": 4.2,
+    "wall_clock_s": 0.0866,
+    "us_per_probe": 7.2,
+    "note": ""
+  },
+  "C_forced_full_scan": {
+    "label": "index forced off (rejected)",
+    "plan": [
+      "2 0 0 SCAN band_bucket_rowid"
+    ],
+    "probes": 60,
+    "rows_returned": 113,
+    "rows_examined": 170640000,
+    "rows_examined_per_probe": 2844000.0,
+    "wall_clock_s": 38.7108,
+    "us_per_probe": 645180.0,
+    "note": "only 60 probes -- 12,000 would take ~14 minutes of the 20-minute window for a single sweep; probe() is placed first so it counts every row visited",
+    "extrapolated_to_12000_probes_s": 7742.2
+  },
+  "A_heavy_buckets": {
+    "label": "WITHOUT ROWID clustered PK, 2000 heaviest buckets",
+    "plan": [
+      "2 0 0 SEARCH band_bucket USING PRIMARY KEY (band_no=? AND band_hash=?)"
+    ],
+    "probes": 2000,
+    "rows_returned": 82062,
+    "rows_examined": 82062,
+    "rows_examined_per_probe": 41.0,
+    "wall_clock_s": 0.0506,
+    "us_per_probe": 25.3,
+    "note": ""
+  },
+  "B_heavy_buckets": {
+    "label": "rowid + secondary index, 2000 heaviest buckets",
+    "plan": [
+      "3 0 0 SEARCH band_bucket_rowid USING INDEX ix_bbr (band_no=? AND band_hash=?)"
+    ],
+    "probes": 2000,
+    "rows_returned": 82062,
+    "rows_examined": 82062,
+    "rows_examined_per_probe": 41.0,
+    "wall_clock_s": 0.0589,
+    "us_per_probe": 29.5,
+    "note": ""
+  },
+  "heavy_bucket_penalty_x": 1.164,
+  "storage": {
+    "band_bucket_rows": 2844000,
+    "db_file_bytes": 350838784,
+    "page_count": 85654,
+    "page_size": 4096
+  },
+  "budget": {
+    "nightly_window_s": 1200,
+    "adopted_full_probe_sweep_s": 18.0,
+    "comment": "a full sweep is BANDS probes per notice; the pipeline does it as one ordered scan instead, see results/pipeline_run.json"
+  }
+}
